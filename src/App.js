@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import CAlcu from "./CAlcu";
 
-function App() {
+const App = () => {
+  const [first, setFirst] = useState(0);
+  const [colo, scolo] = useState("white");
+
+  const samp = () => {
+    setFirst((prev) => prev + 1);
+  };
+
+  const getRandomRGB = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    scolo(`rgb(${r}, ${g}, ${b})`);
+  };
+
+  // New function to handle both actions
+  const handleClick = () => {
+    samp();
+    getRandomRGB();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={handleClick} style={{ backgroundColor: colo }}>
+        {first}
+      </button>
+      <CAlcu />
     </div>
   );
-}
+};
 
 export default App;
