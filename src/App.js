@@ -1,34 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import CAlcu from "./CAlcu";
+import Buttonn from "./Buttonn";
+import Cars from "./Cars";
+import { Cars2 } from "./Cars2";
+import ColorButton from "./Clolorbutton";
+import Axiuosstuff from "./Axiuosstuff";
+import Groc from "./Groc";
 
 const App = () => {
-  const [first, setFirst] = useState(0);
-  const [colo, scolo] = useState("white");
-
-  const samp = () => {
-    setFirst((prev) => prev + 1);
-  };
-
-  const getRandomRGB = () => {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    scolo(`rgb(${r}, ${g}, ${b})`);
-  };
-
-  // New function to handle both actions
-  const handleClick = () => {
-    samp();
-    getRandomRGB();
-  };
-
   return (
     <div>
-      <button onClick={handleClick} style={{ backgroundColor: colo }}>
-        {first}
-      </button>
-      <CAlcu />
+      <Groc />
+      <Axiuosstuff />
+      <Buttonn />
+      <Cars2 />
     </div>
   );
 };
