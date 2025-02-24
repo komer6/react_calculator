@@ -1,7 +1,7 @@
-// Groc.js
 import React, { useState } from "react";
 import { getproductsbycategories, getAllCategories } from "./datas";
 import ProductRow from "./ProductRow"; // Import ProductRow component
+import "./Groc.css"
 
 const Groc = (props) => {
   const [products, setProducts] = useState(getproductsbycategories("*"));
@@ -12,8 +12,8 @@ const Groc = (props) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="groc-container">
+      <div className="buttons">
         <button onClick={() => handleCategoryChange('*')}>All</button>
         {categories.map((category) => (
           <button key={category} onClick={() => handleCategoryChange(category)}>
@@ -22,7 +22,7 @@ const Groc = (props) => {
         ))}
       </div>
 
-      <table border="1">
+      <table className="table" border="1">
         <thead>
           <tr>
             <th>Name</th>
